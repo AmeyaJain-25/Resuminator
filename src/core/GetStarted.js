@@ -64,6 +64,7 @@ const GetStarted = () => {
 
                 <h1>Input Form</h1>
                 <h2>Profile</h2>
+
                 <input type="text" placeholder="Full Name" value={fullName} onChange={handleOnChange("fullName")} />
                 <input type="email" placeholder="Email Address" value={email} onChange={handleOnChange("email")} />
                 <input type="text" placeholder="Contact No" value={contactNo} onChange={handleOnChange("contactNo")} />
@@ -74,7 +75,7 @@ const GetStarted = () => {
                 <input type="text" placeholder="State" value={state} onChange={handleOnChange("state")} />
                 <input type="text" placeholder="Country" value={country} onChange={handleOnChange("country")} />
 
-                <Button color="primary" size="lg">Submit</Button>
+                <Button color="success" size="lg">Submit</Button>
             </header>
         </>
     )
