@@ -63,13 +63,11 @@ const GetStarted = () => {
                 <Button color="primary" size="sm" onClick={() => history.goBack()}>Go Back</Button>
 
                 <h1>Input Form</h1>
+                <h2>Profile</h2>
                 <input type="text" placeholder="Full Name" value={fullName} onChange={handleOnChange("fullName")} />
-
-                {console.log(inputData)}
                 <input type="email" placeholder="Email Address" value={email} onChange={handleOnChange("email")} />
-
                 <input type="text" placeholder="Contact No" value={contactNo} onChange={handleOnChange("contactNo")} />
-
+                <h2>Address</h2>
                 <input type="text" placeholder="Line 1" value={line1} onChange={handleOnChange("line1")} />
                 <input type="text" placeholder="Line 2" value={line2} onChange={handleOnChange("line2")} />
                 <input type="text" placeholder="City" value={city} onChange={handleOnChange("city")} />
