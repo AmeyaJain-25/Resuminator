@@ -60,7 +60,7 @@ const GetStarted = () => {
     return (
         <>
             <header className="App-header">
-                <Button color="primary" size="sm" onClick={() => history.goBack()}>Go Back</Button>
+                <Button color="warning" size="sm" onClick={() => history.goBack()}>Go Back</Button>
 
                 <h1>Input Form</h1>
                 <h2>Profile</h2>
