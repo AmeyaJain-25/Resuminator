@@ -1,7 +1,6 @@
 import './App.css';
 import { Button, Jumbotron, Container } from "reactstrap"
 import { Link } from 'react-router-dom';
-import "bootstrap/dist/css/bootstrap.min.css"
 
 const App = () => {
   return (
