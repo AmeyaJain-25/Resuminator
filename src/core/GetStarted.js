@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import Profile from "../resumeComponents/Profile";
 import Education from "../resumeComponents/Education";
 import { UserDetailContext } from "../context/UserDetailContext";
+import Url from "../resumeComponents/Url";
 
 const GetStarted = () => {
   const [active, setActive] = useState(0);
@@ -13,12 +14,6 @@ const GetStarted = () => {
     setActive(1);
   }, []);
 
-  const [url, setUrl] = useState({
-    linkedInURL: "",
-    githubURL: "",
-    twitterURL: "",
-  });
-
   const [exp, setExp] = useState([]);
 
   const [skills, setSkills] = useState([]);
@@ -26,8 +21,6 @@ const GetStarted = () => {
   const [acheivements, setAcheivements] = useState([]);
 
   const [projects, setProjects] = useState([]);
-
-  const { linkedInURL, githubURL, twitterURL } = url;
 
   const history = useHistory();
 
@@ -47,6 +40,12 @@ const GetStarted = () => {
       clgName: "",
       grade: "",
       passingYear: "",
+    },
+    url: {
+      websiteURL: "",
+      linkedInURL: "",
+      githubURL: "",
+      twitterURL: "",
     },
   });
 
@@ -81,27 +80,7 @@ const GetStarted = () => {
 
           {active === 1 && <Profile setActive={setActive} />}
           {active === 2 && <Education setActive={setActive} />}
-
-          {/* <h2>Profile URLS</h2>
-
-        <input
-          type="url"
-          placeholder="Enter your LinkedIn-Profile URL"
-          value={linkedInURL}
-          onChange={handleOnChange("linkedInURL")}
-        />
-        <input
-          type="url"
-          placeholder="Enter your Github-Profile URL"
-          value={githubURL}
-          onChange={handleOnChange("githubURL")}
-        />
-        <input
-          type="url"
-          placeholder="Enter your Twitter-Profile URL"
-          value={twitterURL}
-          onChange={handleOnChange("twitterURL")}
-        /> */}
+          {active === 3 && <Url setActive={setActive} />}
 
           {/* <Button color="success" size="lg">
           Submit
