@@ -1,84 +1,115 @@
-import React, { useState } from 'react'
-import "../App.css"
-import { Button, } from 'reactstrap';
-import { useHistory } from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import "../App.css";
+import { Button } from "reactstrap";
+import { useHistory } from "react-router-dom";
+import Profile from "../resumeComponents/Profile";
+import Education from "../resumeComponents/Education";
+import { UserDetailContext } from "../context/UserDetailContext";
 
 const GetStarted = () => {
+  const [active, setActive] = useState(0);
 
-    const [inputData, setInputData] = useState({
-        fullName: "",
-        email: "",
-        contactNo: "",
-        line1: "",
-        line2: "",
-        city: "",
-        state: "",
-        country: ""
+  useEffect(() => {
+    setActive(1);
+  }, []);
 
-    })
+  const [url, setUrl] = useState({
+    linkedInURL: "",
+    githubURL: "",
+    twitterURL: "",
+  });
 
-    const { fullName, email, contactNo, line1, line2, state, city, country } = inputData
+  const [exp, setExp] = useState([]);
 
+  const [skills, setSkills] = useState([]);
 
-    const history = useHistory()
+  const [acheivements, setAcheivements] = useState([]);
 
-    //Input fields
+  const [projects, setProjects] = useState([]);
 
-    //TODO: (DONE)
-    //Profile***
-    //Full Name, Email, Address, Phone No. , Short Intro(About me)
+  const { linkedInURL, githubURL, twitterURL } = url;
 
-    //
+  const history = useHistory();
 
-    //URLS*** 
-    //LinkedIn, Github
+  const [userDetail, setUserDetail] = useState({
+    profile: {
+      fullName: "",
+      email: "",
+      contactNo: "",
+      line1: "",
+      line2: "",
+      city: "",
+      state: "",
+      country: "",
+      intro: "",
+    },
+    education: {
+      clgName: "",
+      grade: "",
+      passingYear: "",
+    },
+  });
 
+  //Input fields
 
-    //Education***
+  //TODO: (DONE)
+  //Profile***
+  //Full Name, Email, Address, Phone No. , Short Intro(About me)
 
+  //URLS***
+  //LinkedIn, Github, Twitter
 
-    //Exp***
+  //Education***
 
+  //Exp***
 
-    //Skills***
+  //Skills***
 
+  //Acheivements / Publications***
 
-    //Tech***
+  //Projects (TOP 3)***
 
+  return (
+    <>
+      <UserDetailContext.Provider value={{ userDetail, setUserDetail }}>
+        <header className="App-header">
+          <Button color="warning" size="sm" onClick={() => history.goBack()}>
+            Go Back
+          </Button>
 
-    //Acheivements / Publications***
+          <h1>Input Form</h1>
 
+          {active === 1 && <Profile setActive={setActive} />}
+          {active === 2 && <Education setActive={setActive} />}
 
-    //Projects (TOP 3)***
+          {/* <h2>Profile URLS</h2>
 
+        <input
+          type="url"
+          placeholder="Enter your LinkedIn-Profile URL"
+          value={linkedInURL}
+          onChange={handleOnChange("linkedInURL")}
+        />
+        <input
+          type="url"
+          placeholder="Enter your Github-Profile URL"
+          value={githubURL}
+          onChange={handleOnChange("githubURL")}
+        />
+        <input
+          type="url"
+          placeholder="Enter your Twitter-Profile URL"
+          value={twitterURL}
+          onChange={handleOnChange("twitterURL")}
+        /> */}
 
+          {/* <Button color="success" size="lg">
+          Submit
+        </Button> */}
+        </header>
+      </UserDetailContext.Provider>
+    </>
+  );
+};
 
-    const handleOnChange = (name) => (e) => {
-
-        setInputData({ ...inputData, [name]: e.target.value });
-    };
-    return (
-        <>
-            <header className="App-header">
-                <Button color="warning" size="sm" onClick={() => history.goBack()}>Go Back</Button>
-
-                <h1>Input Form</h1>
-                <h2>Profile</h2>
-
-                <input type="text" placeholder="Full Name" value={fullName} onChange={handleOnChange("fullName")} />
-                <input type="email" placeholder="Email Address" value={email} onChange={handleOnChange("email")} />
-                <input type="text" placeholder="Contact No" value={contactNo} onChange={handleOnChange("contactNo")} />
-                <h2>Address</h2>
-                <input type="text" placeholder="Line 1" value={line1} onChange={handleOnChange("line1")} />
-                <input type="text" placeholder="Line 2" value={line2} onChange={handleOnChange("line2")} />
-                <input type="text" placeholder="City" value={city} onChange={handleOnChange("city")} />
-                <input type="text" placeholder="State" value={state} onChange={handleOnChange("state")} />
-                <input type="text" placeholder="Country" value={country} onChange={handleOnChange("country")} />
-
-                <Button color="success" size="lg">Submit</Button>
-            </header>
-        </>
-    )
-}
-
-export default GetStarted
+export default GetStarted;
