@@ -6,6 +6,7 @@ import Profile from "../resumeComponents/Profile";
 import Education from "../resumeComponents/Education";
 import { UserDetailContext } from "../context/UserDetailContext";
 import Url from "../resumeComponents/Url";
+import Skills from "../resumeComponents/Skills";
 
 const GetStarted = () => {
   const [active, setActive] = useState(0);
@@ -36,33 +37,24 @@ const GetStarted = () => {
       country: "",
       intro: "",
     },
-    education: {
-      clgName: "",
-      grade: "",
-      passingYear: "",
-    },
-    url: {
-      websiteURL: "",
-      linkedInURL: "",
-      githubURL: "",
-      twitterURL: "",
-    },
+    education: [],
+    url: [],
+    skills: [],
   });
 
   //Input fields
 
-  //TODO: (DONE)
-  //Profile***
+  //Profile*** (DONE)
   //Full Name, Email, Address, Phone No. , Short Intro(About me)
 
-  //URLS***
-  //LinkedIn, Github, Twitter
+  //URLS*** (DONE)
+  //LinkedIn, Github, Twitter, Website
 
-  //Education***
+  //Education*** (DONE)
 
   //Exp***
 
-  //Skills***
+  //Skills*** (DONE)
 
   //Acheivements / Publications***
 
@@ -81,6 +73,7 @@ const GetStarted = () => {
           {active === 1 && <Profile setActive={setActive} />}
           {active === 2 && <Education setActive={setActive} />}
           {active === 3 && <Url setActive={setActive} />}
+          {active === 4 && <Skills setActive={setActive} />}
 
           {/* <Button color="success" size="lg">
           Submit
