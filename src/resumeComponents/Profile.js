@@ -75,8 +75,10 @@ const Profile = ({ setActive }) => {
         onChange={handleOnChange("intro")}
       ></textarea>
 
-      <Button onClick={() => setActive(prev => prev - 1)}>Previous</Button>
-      <Button onClick={() => setActive(prev => prev + 1)}>Next</Button>
+      <div>
+        <Button onClick={() => setActive(prev => prev - 1)}>Previous</Button>
+        <Button onClick={() => setActive(prev => prev + 1)}>Next</Button>
+      </div>
     </div>
   );
 };

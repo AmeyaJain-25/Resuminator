@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Button } from "reactstrap";
 import { UserDetailContext } from "../context/UserDetailContext";
 import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
 
 const Skills = ({ setActive }) => {
   const userDetailContext = useContext(UserDetailContext);
@@ -55,7 +56,9 @@ const Skills = ({ setActive }) => {
       })}
 
       <Button onClick={() => setActive(prev => prev - 1)}>Previous</Button>
-      <Button onClick={() => setActive(prev => prev + 1)}>Next</Button>
+      <Link to="/resume">
+        <Button onClick={() => setActive(prev => prev + 1)}>Next</Button>
+      </Link>
     </div>
   );
 };
